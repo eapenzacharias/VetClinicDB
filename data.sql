@@ -27,3 +27,7 @@ VALUES (9,'Boarmon', '2005-06-07', 1, true, 20.40);
 
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (10,'Blossom', '1998-10-13', 3, true, 17.00);
+
+BEGIN TRANSACTION;
+UPDATE animals SET species = 'unspecified';
+ROLLBACK;
