@@ -31,3 +31,8 @@ VALUES (10,'Blossom', '1998-10-13', 3, true, 17.00);
 BEGIN TRANSACTION;
 UPDATE animals SET species = 'unspecified';
 ROLLBACK;
+
+BEGIN TRANSACTION;
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
+END TRANSACTION;
