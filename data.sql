@@ -40,3 +40,11 @@ END TRANSACTION;
 BEGIN TRANSACTION;
 DELETE  FROM animals;
 ROLLBACK;
+
+BEGIN TRANSACTION;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+SAVEPOINT animals_one;
+UPDATE animals SET weight_kg = weight_kg * -1;
+ROLLBACK TO SAVEPOINT animals_one;
+UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
+END TRANSACTION;
