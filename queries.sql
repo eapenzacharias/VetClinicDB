@@ -5,7 +5,7 @@ SELECT name FROM animals WHERE
   and date_of_birth <= '2019-12-31';
 
 SELECT name FROM animals WHERE
-        neutered
+        neutered = 'true'
     and escape_attempts < 3;
 
 SELECT date_of_birth FROM animals WHERE
@@ -15,7 +15,7 @@ SELECT date_of_birth FROM animals WHERE
 SELECT name, escape_attempts FROM animals WHERE
     weight_kg > 10.5;
 
-SELECT * FROM animals WHERE neutered;
+SELECT * FROM animals WHERE neutered = 'true';
 
 SELECT * FROM animals WHERE name != 'Gabumon';
 
