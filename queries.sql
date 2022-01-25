@@ -22,3 +22,16 @@ SELECT * FROM animals WHERE name != 'Gabumon';
 SELECT * FROM animals WHERE
       weight_kg >= 10.4
   and weight_kg <= 17.3;
+
+SELECT COUNT(*) FROM animals;
+
+SELECT COUNT(*) FROM animals where escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animalsl;
+
+SELECT neutered, MAX(escape_attempts) as escape_attempts FROM animals GROUP BY neutered;
+
+SELECT species, min(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
+
+SELECT AVG(escape_attempts) as avg_escape_attempts FROM animals
+where date_of_birth BETWEEN '1990-01-01' AND '2000-01-01';
