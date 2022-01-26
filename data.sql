@@ -48,3 +48,34 @@ UPDATE animals SET weight_kg = weight_kg * -1;
 ROLLBACK TO SAVEPOINT animals_one;
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 END TRANSACTION;
+
+INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34);
+INSERT INTO owners (full_name, age) VALUES ('Jennifer Orwell', 19);
+INSERT INTO owners (full_name, age) VALUES ('Bob', 45);
+INSERT INTO owners (full_name, age) VALUES ('Melody Pond', 77);
+INSERT INTO owners (full_name, age) VALUES ('Dean Winchester', 14);
+INSERT INTO owners (full_name, age) VALUES ('Jodie Whittaker', 38);
+
+INSERT INTO species (name) VALUES ('digimon');
+INSERT INTO species (name) VALUES ('pokemon');
+
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'digimon')
+  WHERE name LIKE '%mon';
+
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'pokemon')
+  WHERE species_id IS NULL;
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+  WHERE name = 'Agumon';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+  WHERE name = 'Gabumon' OR name = 'Pikachu';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Bob' )
+  WHERE name = 'Devimon' OR name = 'Plantmon';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+  WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+  WHERE name = 'Angemon' OR name = 'Boarmon';
