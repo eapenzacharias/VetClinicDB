@@ -64,3 +64,18 @@ UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'digimon')
 
 UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'pokemon')
   WHERE species_id IS NULL;
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+  WHERE name = 'Agumon';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+  WHERE name = 'Gabumon' OR name = 'Pikachu';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Bob' )
+  WHERE name = 'Devimon' OR name = 'Plantmon';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+  WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+  WHERE name = 'Angemon' OR name = 'Boarmon';
