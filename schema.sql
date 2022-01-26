@@ -15,3 +15,8 @@ CREATE TABLE owners (
     full_name TEXT NOT NULL,
     age INT NOT NULL
 );
+
+CREATE TABLE species (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
