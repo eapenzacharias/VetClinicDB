@@ -20,3 +20,11 @@ CREATE TABLE species (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL
 );
+
+ALTER TABLE animals DROP COLUMN id;
+ALTER TABLE animals ADD COLUMN id SERIAL PRIMARY KEY;
+ALTER TABLE animals DROP COLUMN species;
+ALTER TABLE animals ADD COLUMN species_id INT
+ALTER TABLE animals ADD FOREIGN KEY (species_id) REFERENCES species(id);
+ALTER TABLE animals ADD COLUMN owners_id INT;
+ALTER TABLE animals ADD FOREIGN KEY (owners_id) REFERENCES owners(id);
