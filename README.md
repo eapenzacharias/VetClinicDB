@@ -1,6 +1,7 @@
 # VetClinicDB
 
 > Relational database to create the data structure for a vet clinic
+![drawSQL-export-2022-02-01_17_39](https://user-images.githubusercontent.com/49812651/152010965-da8f9d8f-fba4-4bfb-8e86-ccb7f0bba688.png)
 
 
 ## Getting Started
